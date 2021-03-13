@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+
+        // Creating an Object Literal
+
+        const person = {
+            name: {
+                first: 'Rabie',
+                last: 'Nasser'
+            },
+            age: 22,
+            gender: 'male',
+            interests: ['soccer', 'tennis'],
+            bio: function () {
+                alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0], + ' and' + this.interests[1] + '.');
+            },
+            greeting: function() {
+                alert('Hi! I\'m' + this.name[0] + '.')
+            }
+        };
+
+        const band = {
+            name: 'The Doors',
+            nationality: 'American',
+            genre: 'Classic Rock',
+            members: 4,
+            formed: '1967',
+            split: '1973',
+            albums: [{
+                name: 'The Doors',
+                released: '1967'
+            },{
+                name: "L.A. Woman",
+                released: '1971'
+            }]
+        };
+
+        // Creating a constructor function
+
+        function Person (first, last, age, gender, interests) {
+            this.name = {
+                first : first,
+                last : last
+            };
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+            this.bio = function() {
+                alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.')
+            };
+            this.greeting = function() {
+                alert('Hi! I\'m ' + this.name.first + '.')
+            };
+        }
+
+        // Creating an Object Instance
+
+        let person1 = new Person('Rabie', 'Nasser', 22, 'Male', ['Soccer', 'Programming']);
+        
+
+    </script>
+</html>
