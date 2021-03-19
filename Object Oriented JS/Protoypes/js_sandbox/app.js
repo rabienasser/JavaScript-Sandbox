@@ -13,11 +13,11 @@ function Person(firstName, lastName, dob) {
   // }
 }
 
-// Calculate age
-Person.prototype.calculateAge = function(){
+// Calculate age 
+Person.prototype.calculateAge = function(){ 
   const diff =  Date.now() - this.birthday.getTime();
   const ageDate = new Date(diff);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
+  return Math.abs(ageDate.getUTCFullYear() - 1970); 
 }
 
 // Get full name
