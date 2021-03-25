@@ -1,1 +1,1 @@
-const token = 'd35cde93242f3672a9f041cc835ae2fb87fc8b03';
+const githubToken = '416c3364e919d6ee8f32344f992bc7cae0dfd491';
