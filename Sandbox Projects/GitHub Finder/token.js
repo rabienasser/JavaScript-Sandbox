@@ -1,1 +1,0 @@
-const githubToken = '041d989f73a52b067ea964ca9619da06c9bd1817';
