@@ -34,9 +34,26 @@ re = /Hel{2,}o/i;    //Must occur at least {m} times (at least 2 times in this c
 re = /([0-9]x){3}/    // Must be a number between 0-9 followed by 'x' 3 times (5x5x5x)
 
 
+// Shorthand Character Classes
+re = /\w/;    //Word character - alphanumeric or _
+re = /\w+/;    // + = one or more
+re = /\W/;    // Non-Word characters
+re = /\d/;    // Match any digit
+re = /\d+/;    // Match any digit 0 or more times
+re = /\D/;    // Non-digit characters
+re = /\s/;    // Match whitespace character
+re = /\S/;    // Match non-whitespace character
+re = /Hell\b/i;    // Word Boundary
+
+
+// Assertions 
+re = /x(?=y)/;    //Match x only if it is followed by y
+re = /like(?=! soccer)/;    //Match 'like' only if NOT followed by 'soccer'
+
+
 
 // String to match
-const str = '5x5x5x';
+const str = 'I really like baseball';
 const result = re.exec(str);
 console.log(result);
 
@@ -50,3 +67,5 @@ function reTest(re, str) {
 }
 
 reTest(re, str);
+
+
