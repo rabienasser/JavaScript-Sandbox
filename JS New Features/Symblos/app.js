@@ -19,3 +19,10 @@ myObj[KEY1] = 'Prop1';
 myObj[KEY2] = 'Prop2';
 
 console.log(myObj);
+console.log(myObj[KEY1]);
+console.log(myObj[KEY2]);
+
+
+// Symbols are ignored by JSON.stringify
+console.log(JSON.stringify({key: 'prop'}));
+console.log(JSON.stringify({[Symbol('sym1')]: 'prop'}));  //This fails to convert to string. It returns an empty object
