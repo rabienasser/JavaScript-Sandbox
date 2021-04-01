@@ -29,24 +29,24 @@ list.children[3].children[0].id = 'test-link';
 val = list.children[3].children[0];
 
 // First child
-val = list.firstChild;
-val = list.firstElementChild;
+val = list.firstChild;              //Returns Node
+val = list.firstElementChild;       //Returns actual element, not Node
 
 // Last child
-val = list.lastChild;
-val = list.lastElementChild;
+val = list.lastChild;                //Returns Node
+val = list.lastElementChild;         //Returns actual element
 
 // Count child elements
-val = list.childElementCount;
+val = list.childElementCount;       //Counts how many children the 'list' element has
 
 // Get parent node
-val = listItem.parentNode;
-val = listItem.parentElement;
+val = listItem.parentNode;          //Returns parent text Node
+val = listItem.parentElement;       //Returns parent element
 val = listItem.parentElement.parentElement;
 
 // Get next sibling
-val = listItem.nextSibling;
-val = listItem.nextElementSibling.nextElementSibling.previousElementSibling;
+val = listItem.nextSibling;         //Returns sibling node
+val = listItem.nextElementSibling.nextElementSibling;
 
 // Get prev sibling
 val = listItem.previousSibling;
@@ -54,16 +54,3 @@ val = listItem.previousElementSibling;
 console.log(val);
 
 
-
-const list = document.querySelector('ul.collection');
-let val;
-let fal;
-
-val = list.children;
-val = list.lastElementChild;
-fal = val.previousElementSibling;
-
-
-console.log(list);
-console.log(val);
-console.log(fal);

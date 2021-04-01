@@ -1,65 +1,66 @@
-// // Basic Structure of Module Pattern
+// Basic Structure of Module Pattern
 
-// // (function() {
-// //     // Declare private variables and function
-
-// //     return {
-// //         // Declare public variables and functions
-// //     }
-// // })();
-
-
-// // Standard Module Pattern
-// const UICtrl = (function() {
-//     let text = 'Hello World';
-
-//     const changeText = function() {
-//         const element = document.querySelector('h1');
-//         element.textContent = text;
-//     }
+// (function() {
+//     // Declare private variables and function
 
 //     return {
-//         callChangeText: function() {
-//             changeText();
-//             console.log(text);
-//         }
+//         // Declare public variables and functions
 //     }
 // })();
 
-// UICtrl.callChangeText();
+
+// Standard Module Pattern
+const UICtrl = (function() {
+    let text = 'Hello World';
+
+    const changeText = function() {
+        const element = document.querySelector('h1');
+        element.textContent = text;
+    }
+
+    return {
+        callChangeText: function() {
+            changeText();
+            console.log(text);
+        }
+    }
+})();
+
+UICtrl.callChangeText();
 
 
-// // Will Return errors because cannot access private functions outside of Module (IFFE Function)
-// console.log(UICtrl.text);
-// console.log(changeText);
+// Will Return errors because cannot access private functions outside of Module (IFFE Function)
+console.log(UICtrl.text);
+console.log(changeText);
 
 
 
 
 
-// // Revealing Module Pattern
-// const itemCtrl = (function() {
-//     let _data = [];                      //  Underscore _ given to private variabels
+// Revealing Module Pattern
+const itemCtrl = (function() {
+    let _data = [];                      //  Underscore _ given to private variabels
 
-//     function add(item) {
-//         data.push(item)
-//         console.log('item added...')
-//     }
+    function add(item) {
+        data.push(item)
+        console.log('item added...')
+    }
 
-//     function get(id) {
-//         return _data.find(item => {
-//             return item.id === id;
-//         });
-//     }
+    function get(id) {
+        return _data.find(item => {
+            return item.id === id;
+        });
+    }
 
-//     return {
-//         add: add,
-//         get: get
-//     }
-// })();
+    return {
+        add: add,
+        get: get
+    }
+})();
 
-// itemCtrl.add({id: 1, name: 'Rob'});
-// console.log(itemCtrl.get(1));
+itemCtrl.add({id: 1, name: 'Rob'});
+console.log(itemCtrl.get(1));
+
 
 
 

@@ -28,7 +28,7 @@ console.log(map1.size);     // Will return 3 in console
 
 // Iterating through maps
 for(let [key, value] of map1) {
-    console.log(`${key} = ${value}`)
+    console.log(`${key} = ${value}`)    //Will return smthng like this "some string = Value of key1"
 }
 
 // Iterate Keys Only
