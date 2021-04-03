@@ -21,6 +21,15 @@ const App = (function(ItemCtrl, UICtrl) {
 
         // Update item event
         document.querySelector(UISelectors.updateBtn).addEventListener('click', itemUpdateSubmit);
+
+        // Delete Button event
+        document.querySelector(UISelectors.deleteBtn).addEventListener('click', itemDeleteSubmit);
+        
+        // Back Button event
+        document.querySelector(UISelectors.backBtn).addEventListener('click', UICtrl.clearEditState);
+
+        //  Clear button event
+        document.querySelector(UISelectors.clearBtn).addEventListener('click', clearAllItemsClick);
     }
 
         // Add item submit
@@ -44,7 +53,9 @@ const App = (function(ItemCtrl, UICtrl) {
 
                 // Clear Fields
                 UICtrl.clearInput();
-            } 
+            } else {
+                alert('Please make an entry in both fields.')
+            }
 
 
             e.preventDefault();
@@ -92,6 +103,49 @@ const App = (function(ItemCtrl, UICtrl) {
             const totalCalories = ItemCtrl.getTotalCalories();
             // Add total calories to UI
             UICtrl.showTotalCalories(totalCalories)
+
+            // Clear edit state
+            UICtrl.clearEditState();
+
+            e.preventDefault();
+        }
+
+        // Item Delete Submit
+        const itemDeleteSubmit = function(e) {
+            // Get Current Item
+            const currentItem = ItemCtrl.getCurrentItem();
+
+            // Delete from data structure
+            ItemCtrl.deleteItem(currentItem.id)
+
+            // Delete from UI
+            UICtrl.deleteListItem(currentItem.id)
+
+            // Get total calories
+            const totalCalories = ItemCtrl.getTotalCalories();
+            // Add total calories to UI
+            UICtrl.showTotalCalories(totalCalories)
+
+            // Clear edit state
+            UICtrl.clearEditState();
+
+            e.preventDefault();
+        }
+
+
+        // Clear items button
+        const clearAllItemsClick = function(e) {
+            // Delete All items from data structure
+            ItemCtrl.clearAllItems();
+            
+
+            // Get total calories
+            const totalCalories = ItemCtrl.getTotalCalories();
+            // Add total calories to UI
+            UICtrl.showTotalCalories(totalCalories);
+
+            // Remove list from UI
+            UICtrl.clearList();
 
             // Clear edit state
             UICtrl.clearEditState();

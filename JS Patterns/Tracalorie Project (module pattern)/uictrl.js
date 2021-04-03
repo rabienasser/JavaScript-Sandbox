@@ -7,6 +7,7 @@ const UICtrl = (function() {
         updateBtn: '.update-btn',
         deleteBtn: '.delete-btn',
         backBtn: '.back-btn',
+        clearBtn: 'clear-btn',
         itemNameInput: '#item-name',
         itemCaloriesInput: '#item-calories',
         totalCalories: '.total-calories'
@@ -64,6 +65,24 @@ const UICtrl = (function() {
                     document.querySelector(`#${itemId}`).innerHTML = `<strong>${item.name}: </strong> <em>${item.calories} Calories</em>
                     <a href="#" class="secondary-content"><i class="edit-item fa fa-pencil-alt"></i></a>`;
                 }
+            });
+        },
+
+        // Delete List Item
+        deleteListItem: function(id) {
+            const itemID = `#item-${id}`;
+            const item = document.querySelector(itemID);
+            item.remove();
+        },
+        // Clear List
+        clearList: function() {
+            let listItems = document.querySelectorAll(UISelectors.listItems);
+
+            // Turn into Array
+            listItems = Array.from(listItems);
+
+            listItems.forEach(function(item) {
+                item.remove();
             });
         },
 
