@@ -10,11 +10,12 @@ const ItemCtrl = (function() {
 
     // Data Structure
     const data = {
-        items: [
-            // {id: 0, name: 'Steak Dinner', calories: 1200},
-            // {id: 1, name: 'Fruit & Protein Smoothie', calories: 400},
-            // {id: 2, name: 'Lentil Soup', calories: 300},
-        ],
+        // items: [
+        //     // {id: 0, name: 'Steak Dinner', calories: 1200},
+        //     // {id: 1, name: 'Fruit & Protein Smoothie', calories: 400},
+        //     // {id: 2, name: 'Lentil Soup', calories: 300},
+        // ],
+        items: StorageCtrl.getItemsFromStorage(),
         currentItem: null,
         totalCalories: 0
     }

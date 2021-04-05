@@ -1,5 +1,5 @@
 // App Controller
-const App = (function(ItemCtrl, UICtrl) {
+const App = (function(ItemCtrl, StorageCtrl, UICtrl) {
     // Load Event Listeners
     const loadEventListeners = function() {
         // Get UI Selectors
@@ -50,6 +50,9 @@ const App = (function(ItemCtrl, UICtrl) {
                 const totalCalories = ItemCtrl.getTotalCalories();
                 // Add total calories to UI
                 UICtrl.showTotalCalories(totalCalories)
+
+                // Store in Local Storage
+                StorageCtrl.storeItem(newItem);
 
                 // Clear Fields
                 UICtrl.clearInput();
@@ -176,7 +179,7 @@ const App = (function(ItemCtrl, UICtrl) {
         }
     }
 
-})(ItemCtrl, UICtrl);
+})(ItemCtrl, StorageCtrl,  UICtrl);
 
 
 
