@@ -7,7 +7,7 @@ const sayHello = () => {
     console.log('Hello');
 }
 
-// Other notation
+// Other notation for one line function (doesn't need curly braces)
 const sayHello = () => console.log('Hello');
 
 
