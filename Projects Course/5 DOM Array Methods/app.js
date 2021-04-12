@@ -23,7 +23,7 @@ getRandomUser();
 
     const newUser = {
         name: `${user.name.first} ${user.name.last}`,
-        money: Math.floor(Math.random() * 1000000) + 1
+        money: Math.floor(Math.random() * 1000000) +1
     };
 
     addData(newUser);
@@ -38,5 +38,19 @@ function addData(randomUser) {
 
 // Update DOM
 function updateDOM(providedData = data) {
+    // Clear main div
+    main.innerHTML = '<h2><strong>Person</strong> Wealth</h2>';
 
+    providedData.forEach(randomUser => {
+        const element = document.createElement('div');
+        element.classList.add('person');
+        element.innerHTML = `<strong>${randomUser.name}</strong> $ ${randomUser.money.toLocaleString()}`;
+        main.appendChild(element);
+    })
 }
+
+
+// Event listeners
+addUserBtn.addEventListener('click', function() {
+    getRandomUser();
+})
