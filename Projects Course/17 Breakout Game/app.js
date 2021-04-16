@@ -5,6 +5,7 @@ const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
 
 let score = 0;
+let highScore = localStorage.getItem('score');
 
 const brickRowCount = 5;
 const brickColumnCount = 9;
@@ -80,6 +81,12 @@ function drawScore() {
     ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
 }
 
+// Draw High Score on canvas
+function drawHighScore() {
+    ctx.font = '20px Arial';
+    ctx.fillText(`High Score: ${localStorage.getItem('score')}`, canvas.width - 240, 30);
+}
+
 // Draw Bricks on Canvas
 function drawBricks() {
     bricks.forEach((column) => {
@@ -119,7 +126,7 @@ function moveBall() {
     }
 
     // Wall collision (y)
-    if(ball.y + ball.size > canvas.height || ball.y + ball.size < 0) {
+    if(ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
         ball.dy *= -1;
     }
 
@@ -140,10 +147,39 @@ function moveBall() {
                     ball.y - ball.size < brick.y + brick.h) {
                         ball.dy *= -1;
                         brick.visible = false;
+
+                        score ++;
                 }
             }
         })
     })
+
+    // Hit bottom wall - Lose
+    if(ball.y + ball.size > canvas.height) {
+        if(localStorage.getItem('score') < score) {
+            localStorage.setItem('score', score);
+        }
+
+        highScore = localStorage.getItem('score');
+        
+        showAllBricks();
+        score = 0;
+    }
+}
+
+
+// Make all bricks appear
+function showAllBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            brick.visible = true;
+        })
+    })
+}
+
+// Win Game
+if (score % (brickRowCount * brickColumnCount) === 0) {
+    showAllBricks();
 }
 
 // Draw Everything
@@ -154,6 +190,7 @@ function draw() {
     drawBall();
     drawPaddle();
     drawScore();
+    drawHighScore();
     drawBricks();
 }
 
