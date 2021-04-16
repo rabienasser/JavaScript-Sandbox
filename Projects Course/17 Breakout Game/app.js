@@ -84,7 +84,7 @@ function drawScore() {
 // Draw High Score on canvas
 function drawHighScore() {
     ctx.font = '20px Arial';
-    ctx.fillText(`High Score: ${localStorage.getItem('score')}`, canvas.width - 240, 30);
+    ctx.fillText(`High Score: ${highScore}`, canvas.width - 240, 30);
 }
 
 // Draw Bricks on Canvas
