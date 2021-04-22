@@ -5,6 +5,7 @@
 body {
     background: #2c3e50;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -12,7 +13,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-button {
+button, .end-game {
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
@@ -23,6 +24,25 @@ button {
     position: absolute;
     bottom: 30px;
     left: 30px;
+}
+
+.start-game, .end-game {
+    margin-bottom: 30px;
+    width: 20%;
+}
+
+.end-game{
+    background-color: #a7c5e3;
+}
+
+.start-game:hover {
+    background: #a7c5e3;
+    color: black;
+}
+
+.end-game:hover {
+    background: white;
+    color: black;
 }
 
 .settings {
