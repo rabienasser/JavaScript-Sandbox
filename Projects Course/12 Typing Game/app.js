@@ -12,20 +12,7 @@ const endGame = document.querySelector('#end-game-container');
 const small = document.querySelector('small');
 
 
-// Start game
-function startGame() {
-    let countdown = 6;
 
-        const beginGame = setInterval(function() {
-            countdown--;
-            word.innerHTML = countdown;
-            if(countdown <= 0){
-                clearInterval(beginGame);
-                setInterval(getWords, 3000);
-            } 
-        }, 1000)
-        
-}
 
 function stopGame() {
     word.innerHTML = 'Game Over';
