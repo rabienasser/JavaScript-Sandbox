@@ -6,38 +6,54 @@ const settings = document.querySelector('#settings');
 const settingsForm = document.querySelector('#settings-form');
 const word = document.querySelector('#word');
 const textInput = document.querySelector('#text');
-const score = document.querySelector('#score');
-const time = document.querySelector('#time');
+const scoreEl = document.querySelector('#score');
+const timeEl = document.querySelector('#time');
 const endGame = document.querySelector('#end-game-container');
 const small = document.querySelector('small');
 
 
+let randomWord;
+let score = 0;
+let time = 10;
 
 
-function stopGame() {
-    word.innerHTML = 'Game Over';
-    small.style.display = 'none';
-}
 
 
-// List of words for Game
+// Generate Random Word from API
 async function getWords() {
-    const response = await fetch('https://random-word-api.herokuapp.com/word?number=100');
+    const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
     const data = await response.json();
 
-    let randomWord;
-
-    data.forEach(word => {
-        randomWord = Math.floor(Math.random() * data.length)
-    })
-    
-    word.innerHTML = data[randomWord];
+    return data[0]
 
 }
 
+// Add Word to DOM
+async function addWordToDOM() {
+    randomWord = await getWords();
+    word.innerHTML = randomWord;
+}
 
-startGameBtn.addEventListener('click', startGame)
-stopGameBtn.addEventListener('click', stopGame)
+addWordToDOM();
+
+function updateScore() {
+    score++;
+    scoreEl.innerHTML = score;
+}
+
+
+// Event Listeners
+textInput.addEventListener('input', e => {
+    const insertedText = e.target.value;
+
+    if(insertedText === randomWord) {
+        addWordToDOM();
+        updateScore();
+        setTimeout(function() {e.target.value = ''},450);
+    }
+})
+// startGameBtn.addEventListener('click', startGame)
+// stopGameBtn.addEventListener('click', stopGame)
 
 
 
