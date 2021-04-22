@@ -13,19 +13,21 @@ const endGame = document.querySelector('#end-game-container');
 async function getWords() {
     const response = await fetch('https://random-word-api.herokuapp.com/word?number=100');
     const data = await response.json();
-    console.log(data);
+    let randomWord = Math.floor(Math.random() * data.length)
 
-    showWord(data);
-}
-
-getWords();
-
-function showWord(data) {
     data.forEach(word => {
-        console.log(word);
+         return (data[randomWord]);
     })
+
+    displayWord(randomWord);
 }
 
-settingsBtn.addEventListener('click', showWord);
+function displayWord(randomWord) {
+    word.innerHTML = randomWord;
+}
+
+
+settingsBtn.addEventListener('click', displayWord);
+
 
 
