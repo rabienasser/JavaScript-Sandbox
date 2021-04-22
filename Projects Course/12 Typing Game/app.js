@@ -6,11 +6,13 @@ const settings = document.querySelector('#settings');
 const settingsForm = document.querySelector('#settings-form');
 const word = document.querySelector('#word');
 const textInput = document.querySelector('#text');
-const score = document.querySelector('#score');
+const scoreEl = document.querySelector('#score');
 const time = document.querySelector('#time');
 const endGame = document.querySelector('#end-game-container');
 const small = document.querySelector('small');
 
+
+let score = 0;
 
 // Start game
 function startGame() {
@@ -24,12 +26,24 @@ function startGame() {
                 setInterval(getWords, 3000);
             } 
         }, 1000)
-        
+
 }
 
+// Stop game
 function stopGame() {
-    word.innerHTML = 'Game Over';
-    small.style.display = 'none';
+        word.style.display = 'none';
+        small.style.display = 'none';
+        clearInterval(getWords);
+        endGame.innerHTML = 'Game Over';
+
+        startGame();
+}
+
+
+// Update score
+function updateScore() {
+    score++;
+    scoreEl.innerHTML = score;
 }
 
 
@@ -47,6 +61,7 @@ async function getWords() {
     word.innerHTML = data[randomWord];
 
 }
+
 
 
 startGameBtn.addEventListener('click', startGame)
