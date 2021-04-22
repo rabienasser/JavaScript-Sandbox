@@ -26,13 +26,14 @@ button, .end-game {
     left: 30px;
 }
 
-.start-game, .end-game {
+.start-game, .stop-game {
     margin-bottom: 30px;
     width: 20%;
 }
 
-.end-game{
+.stop-game{
     background-color: #a7c5e3;
+    display: none;
 }
 
 .start-game:hover {

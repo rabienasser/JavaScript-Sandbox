@@ -15,8 +15,7 @@ const small = document.querySelector('small');
 let randomWord;
 let score = 0;
 let time = 10;
-
-
+let timeInterval;
 
 
 // Generate Random Word from API
@@ -34,13 +33,48 @@ async function addWordToDOM() {
     word.innerHTML = randomWord;
 }
 
-addWordToDOM();
+
+function updateTime() {
+    if(time >= 1) {
+        time--;
+        timeEl.innerHTML = time + 's';
+    }
+
+    if(time === 0) {
+        clearInterval(timeInterval)
+        gameOver();
+    }
+}
 
 function updateScore() {
     score++;
     scoreEl.innerHTML = score;
 }
 
+function startGame() {
+     timeInterval = setInterval(updateTime, 1000);
+    getWords();
+    addWordToDOM();
+    updateTime();
+
+    // Focus on text on Start
+    textInput.focus();
+
+    startGameBtn.style.display = 'none';
+}
+
+// Game over, show end screen
+function gameOver() {
+    endGame.innerHTML = `
+    <h1>Time ran out</h1>
+    <p>Your score is ${score}</p>
+    <button onclick = "location.reload()">Reload</button>
+    `;
+
+    endGame.style.display = 'flex';
+    
+    // Enable reset btn
+}
 
 // Event Listeners
 textInput.addEventListener('input', e => {
@@ -49,11 +83,12 @@ textInput.addEventListener('input', e => {
     if(insertedText === randomWord) {
         addWordToDOM();
         updateScore();
+        time = 11;
         setTimeout(function() {e.target.value = ''},450);
     }
 })
-// startGameBtn.addEventListener('click', startGame)
-// stopGameBtn.addEventListener('click', stopGame)
+
+startGameBtn.addEventListener('click', startGame)
 
 
 
