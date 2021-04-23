@@ -1,5 +1,5 @@
 // Variables
-let difficulty = document.querySelector('#difficulty');
+const difficultySelect = document.querySelector('#difficulty');
 const settingsBtn = document.querySelector('#settings-btn');
 const startGameBtn = document.querySelector('.start-game');
 const stopGameBtn = document.querySelector('.stop-game');
@@ -18,6 +18,18 @@ let score = 0;
 let time = 10;
 let timeInterval;
 
+
+// Set difficulty to value in ls or medium
+let difficulty =
+  localStorage.getItem('difficulty') !== null
+    ? localStorage.getItem('difficulty')
+    : 'medium';
+
+// Set difficulty select value
+difficultySelect.value =
+  localStorage.getItem('difficulty') !== null
+    ? localStorage.getItem('difficulty')
+    : 'medium';
 
 
 // Generate Random Word from API
@@ -38,10 +50,8 @@ async function addWordToDOM() {
 
 // Update Time
 function updateTime() {
-    if(time >= 1) {
         time--;
         timeEl.innerHTML = time + 's';
-    }
 
     if(time === 0) {
         clearInterval(timeInterval)
@@ -61,7 +71,6 @@ function startGame() {
      timeInterval = setInterval(updateTime, 1000);
     getWords();
     addWordToDOM();
-    // updateTime();
 
     // Focus on text on Start
     textInput.focus();
@@ -69,11 +78,6 @@ function startGame() {
     startGameBtn.style.display = 'none';
     stopGameBtn.style.display = 'flex';
 }
-
-
-// Add time on correct answer
-
-
 
 
 // Game over, show end screen
@@ -96,13 +100,12 @@ textInput.addEventListener('input', e => {
     if(insertedText === randomWord) {
         addWordToDOM();
         updateScore();
-        // addTime();
         e.target.value = '';
 
         switch(difficulty) {
-            case 'easy' : time += 10;
-            case 'medium' : time += 7;
-            case 'hard' : time += 5;
+            case 'easy' : time += 5;
+            case 'medium' : time += 4;
+            case 'hard' : time += 3;
         }
     
         updateTime();
