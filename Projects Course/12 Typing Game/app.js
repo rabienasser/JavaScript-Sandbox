@@ -1,5 +1,5 @@
 // Variables
-const difficuly = document.querySelector('#difficulty');
+let difficulty = document.querySelector('#difficulty');
 const settingsBtn = document.querySelector('#settings-btn');
 const startGameBtn = document.querySelector('.start-game');
 const stopGameBtn = document.querySelector('.stop-game');
@@ -61,7 +61,7 @@ function startGame() {
      timeInterval = setInterval(updateTime, 1000);
     getWords();
     addWordToDOM();
-    updateTime();
+    // updateTime();
 
     // Focus on text on Start
     textInput.focus();
@@ -69,6 +69,11 @@ function startGame() {
     startGameBtn.style.display = 'none';
     stopGameBtn.style.display = 'flex';
 }
+
+
+// Add time on correct answer
+
+
 
 
 // Game over, show end screen
@@ -91,8 +96,16 @@ textInput.addEventListener('input', e => {
     if(insertedText === randomWord) {
         addWordToDOM();
         updateScore();
-        time = 11;
-        setTimeout(function() {e.target.value = ''},450);
+        // addTime();
+        e.target.value = '';
+
+        switch(difficulty) {
+            case 'easy' : time += 10;
+            case 'medium' : time += 7;
+            case 'hard' : time += 5;
+        }
+    
+        updateTime();
     }
 })
 
