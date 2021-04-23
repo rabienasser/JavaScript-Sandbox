@@ -91,5 +91,5 @@ textInput.addEventListener('input', e => {
 startGameBtn.addEventListener('click', startGame)
 
 
-
+console.log('test');
 
