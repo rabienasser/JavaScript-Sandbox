@@ -1,3 +1,4 @@
+// Variables
 const difficuly = document.querySelector('#difficulty');
 const settingsBtn = document.querySelector('#settings-btn');
 const startGameBtn = document.querySelector('.start-game');
@@ -18,6 +19,7 @@ let time = 10;
 let timeInterval;
 
 
+
 // Generate Random Word from API
 async function getWords() {
     const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
@@ -34,6 +36,7 @@ async function addWordToDOM() {
 }
 
 
+// Update Time
 function updateTime() {
     if(time >= 1) {
         time--;
@@ -46,11 +49,14 @@ function updateTime() {
     }
 }
 
+
+// Update Score
 function updateScore() {
     score++;
     scoreEl.innerHTML = score;
 }
 
+// Start Game
 function startGame() {
      timeInterval = setInterval(updateTime, 1000);
     getWords();
@@ -61,7 +67,9 @@ function startGame() {
     textInput.focus();
 
     startGameBtn.style.display = 'none';
+    stopGameBtn.style.display = 'flex';
 }
+
 
 // Game over, show end screen
 function gameOver() {
@@ -72,9 +80,9 @@ function gameOver() {
     `;
 
     endGame.style.display = 'flex';
-    
-    // Enable reset btn
+    stopGameBtn.style.display = 'none';
 }
+
 
 // Event Listeners
 textInput.addEventListener('input', e => {
@@ -89,7 +97,17 @@ textInput.addEventListener('input', e => {
 })
 
 startGameBtn.addEventListener('click', startGame)
+stopGameBtn.addEventListener('click', gameOver)
 
 
-console.log('test');
+// Hide Settings Btn
+settingsBtn.addEventListener('click', () => {
+    settings.classList.toggle('hidden');
+})
 
+
+// Settings Select
+settingsForm.addEventListener('change', e => {
+    difficulty = e.target.value;
+    localStorage.setItem('difficulty', difficulty);
+})

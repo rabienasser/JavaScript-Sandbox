@@ -13,17 +13,31 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-button, .end-game {
+button {
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;
     padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .settings-btn {
     position: absolute;
     bottom: 30px;
     left: 30px;
+}
+
+.settings.hidden {
+    transform: translateY(-100px);
+    transition: all 0.8s ease-in-out;
+}
+
+.settings{
+    transform: translateY(100px);
+    transition: all 1s ease-in-out;;
 }
 
 .start-game, .stop-game {
@@ -41,7 +55,7 @@ button, .end-game {
     color: black;
 }
 
-.end-game:hover {
+.stop-game:hover {
     background: white;
     color: black;
 }
