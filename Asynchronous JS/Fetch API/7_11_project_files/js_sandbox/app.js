@@ -58,3 +58,6 @@ function getExternal() {
         console.log(err);
     });
 }
+
+// test
+console.log('test');
