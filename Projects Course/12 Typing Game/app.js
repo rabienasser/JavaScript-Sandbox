@@ -68,6 +68,8 @@ function updateScore() {
 
 // Start Game
 function startGame() {
+    settings.classList.toggle('hidden');
+    settingsBtn.style.display = 'none'
      timeInterval = setInterval(updateTime, 1000);
     getWords();
     addWordToDOM();
@@ -77,11 +79,13 @@ function startGame() {
 
     startGameBtn.style.display = 'none';
     stopGameBtn.style.display = 'flex';
+
 }
 
 
 // Game over, show end screen
 function gameOver() {
+    settingsBtn.style.display = 'flex'
     endGame.innerHTML = `
     <h1>Time ran out</h1>
     <p>Your score is ${score}</p>
@@ -102,10 +106,30 @@ textInput.addEventListener('input', e => {
         updateScore();
         e.target.value = '';
 
-        switch(difficulty) {
-            case 'easy' : time += 5;
-            case 'medium' : time += 4;
-            case 'hard' : time += 3;
+        // switch(difficulty) {
+        //     case 'easy' : time = 4;
+        //     case 'medium' : time += 4;
+        //     case 'hard' : time += 3;
+        // }
+
+        if(difficulty === 'easy') {
+            if(time <= 5) {
+                time += 6
+            } else {
+                time = 11
+            }
+        } else if(difficulty === 'medium') {
+            if(time <= 6) {
+                time += 5
+            } else {
+                time = 11
+            }
+        } else if(difficulty === 'hard') {
+            if(time <= 7) {
+                time += 4
+            } else {
+                time = 11
+            }
         }
     
         updateTime();
