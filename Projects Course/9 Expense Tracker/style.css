@@ -51,10 +51,6 @@ h1 {
     width: 100%;
 }
 
-#tracker .income,
-#tracker .expense {
-    padding: 10px 30px;
-}
 
 .income-bal {
     color: green;
@@ -78,6 +74,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;;
 }
 
 #history .item {
