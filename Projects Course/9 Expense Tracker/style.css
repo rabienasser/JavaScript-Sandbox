@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Goudy Bookletter 1911', serif;
+    background-color: #f7f7f7;
+}
+
+.container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 20px;
+}
+
+#balance {
+    margin-top: 20px;
+    float: left;
+}
+
+#tracker {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 30px;
+    margin: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 100%;
+}
+
+#tracker .income,
+#tracker .expense {
+    padding: 10px 30px;
+}
+
+.income-bal {
+    color: green;
+}
+
+.expense-bal {
+    color: red;
+}
+
+.neg-color {
+    background-color: red;
+    width: 2px;
+    height: 100%;
+}
+
+#history {
+    width: 100%;
+    margin: 20px;
+}
+
+#history .item {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin: 12px;
+    padding: 5px 10px;
+    width: 100%;
+}
