@@ -8,12 +8,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Goudy Bookletter 1911', serif;
+    font-family: 'Crimson Text', serif;
     background-color: #f7f7f7;
 }
 
 .container {
-    width: 25%;
+    width: 23%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -25,9 +25,20 @@ h1 {
     margin: 20px;
 }
 
+.heading {
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
 #balance {
     margin-top: 20px;
-    float: left;
+    text-align: left;
+    width: 100%;
+}
+
+.balance {
+    font-size: 3rem;
+    margin: 0;
 }
 
 #tracker {
@@ -53,15 +64,20 @@ h1 {
     color: red;
 }
 
-.neg-color {
-    background-color: red;
-    width: 2px;
-    height: 100%;
+.bal {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 #history {
     width: 100%;
     margin: 20px;
+}
+
+#items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #history .item {
@@ -71,4 +87,43 @@ h1 {
     margin: 12px;
     padding: 5px 10px;
     width: 100%;
+}
+
+#history .negative-item {
+    border-right: 4px solid red
+}
+
+#history .positive-item {
+    border-right: 4px solid green;
+}
+
+#add-trans {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+#add-trans label {
+    margin: 10px 0 5px;
+}
+
+#add-trans input {
+    padding: 8px;
+}
+
+button {
+    padding: 8px;
+    margin-bottom: 2rem;
+    margin-top: 8px;
+    border: none;
+    background-color:royalblue;
+    color: white;
+    font-size: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.9;
 }
