@@ -124,3 +124,9 @@ button:hover {
     cursor: pointer;
     opacity: 0.9;
 }
+
+.clear-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}

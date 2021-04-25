@@ -4,7 +4,8 @@ const expense = document.querySelector('.expense');
 const items = document.querySelector('#items')
 const text = document.querySelector('#text');
 const amount = document.querySelector('#amount');
-const addBtn = document.querySelector('button');
+const addBtn = document.querySelector('.add-btn');
+const clearBtn = document.querySelector('.clear-btn');
 const incomeBal = document.querySelector('.in-bal')
 const expenseBal = document.querySelector('.ex-bal')
 
@@ -34,14 +35,14 @@ function addTransaction() {
             <h3>${text.value}</h3>
             <p>${amount.value}</p>
         `;
-    
+        
         items.appendChild(list);
     
         if(amount.value.includes('-')) {
             list.classList.add('negative-item');
             negativeNumbers.push(amount.value);
             const negNumArr = negativeNumbers.map((n) => {
-                return parseInt(n, 10);
+                return parseFloat(n, 10);
             })
              negSum = negNumArr.reduce(function(a, b){
                 return a + b;
@@ -52,7 +53,7 @@ function addTransaction() {
             list.classList.add('positive-item');
             positiveNumbers.push(amount.value);
             const posNumArr = positiveNumbers.map((n) => {
-                return parseInt(n, 10);
+                return parseFloat(n, 10);
             })
              posSum = posNumArr.reduce(function(a, b){
                 return a + b;
@@ -79,12 +80,35 @@ function displayError() {
     }
 }
 
+// // CLEAR TRANSACTIONS
+// function clearTransactions() {
+//     items.remove();
+// }
+
 function clearFields() {
     text.value = '';
     amount.value = '';
 }
 
-addBtn.addEventListener('submit', addTransaction);
 
+// EVENT LISTENERS
+addBtn.addEventListener('click', addTransaction);
+// clearBtn.addEventListener('click', clearTransactions)
+
+(function() {
+    text.addEventListener('keydown', (e) => {
+        if(e.code === 'Enter') {
+            e.preventDefault();
+            addTransaction();
+        }
+    })
+    amount.addEventListener('keydown', (e) => {
+        if(e.code === 'Enter') {
+            e.preventDefault();
+            addTransaction();
+            text.focus();
+        }
+    })
+})()
 
 
