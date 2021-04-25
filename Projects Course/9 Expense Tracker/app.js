@@ -29,7 +29,7 @@ function addTransaction() {
     const list = document.createElement('div');
     list.classList.add('item');
 
-    if(text.value || amount.value !== '') {
+    if(text.value && amount.value !== '') {
         list.innerHTML = `
             <h3>${text.value}</h3>
             <p>${amount.value}</p>
@@ -69,7 +69,7 @@ function addTransaction() {
 function calculation() {
     incomeBal.textContent = formatter.format(posSum);
     expenseBal.textContent = formatter.format(negSum);
-    balance.textContent = formatter.format(posSum) + formatter.format(negSum);
+    balance.textContent = formatter.format(posSum + negSum);
 }
 
 // DISPLAY ERROR ON EMPTY FIELDS
@@ -84,7 +84,7 @@ function clearFields() {
     amount.value = '';
 }
 
-addBtn.addEventListener('click', addTransaction);
+addBtn.addEventListener('submit', addTransaction);
 
 
 
