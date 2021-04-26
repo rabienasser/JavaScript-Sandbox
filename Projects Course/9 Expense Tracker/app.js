@@ -46,23 +46,13 @@ function addTransaction() {
         if(amount.value.includes('-')) {
             list.classList.add('negative-item');
             negativeNumbers.push(amount.value);
-            const negNumArr = negativeNumbers.map((n) => {
-                return parseFloat(n, 10);
-            })
-             negSum = negNumArr.reduce(function(a, b){
-                return a + b;
-            }, 0);
+            arrays();
         } 
         
         else {
             list.classList.add('positive-item');
             positiveNumbers.push(amount.value);
-            const posNumArr = positiveNumbers.map((n) => {
-                return parseFloat(n, 10);
-            })
-             posSum = posNumArr.reduce(function(a, b){
-                return a + b;
-            }, 0);
+            arrays();
         }
     } else {
         displayError();
@@ -72,6 +62,22 @@ function addTransaction() {
     deleteButton();
 }
 
+// CREATE ARRAYS OF POS AND NEG AMOUNTS
+function arrays() {
+    const negNumArr = negativeNumbers.map((n) => {
+        return parseFloat(n, 10);
+    })
+     negSum = negNumArr.reduce(function(a, b){
+        return a + b;
+    }, 0);
+
+    const posNumArr = positiveNumbers.map((n) => {
+        return parseFloat(n, 10);
+    })
+     posSum = posNumArr.reduce(function(a, b){
+        return a + b;
+    }, 0);
+}
 
 
 // DELETE BUTTON CREATION
@@ -84,17 +90,17 @@ function deleteButton() {
 // DELETE LIST ITEM
 function deleteItem() {
     list.remove();
-    positiveNumbers.pop(amount.value)
-    const posNumArr = positiveNumbers.map((n) => {
-        return parseFloat(n, 10);
-    })
-     posSum = posNumArr.reduce(function(a, b){
-        return a + b;
-    }, 0);
-    
 
+    if(list.classList.contains('negative-item')) {
+        negativeNumbers.pop(amount.value)
+        
+    }
+    else {
+        positiveNumbers.pop(amount.value)
+    }
+
+    arrays();
     calculation();
-
 }
 
 // DISPLAY POSITIVE AND NEGATIVE SUM IN UI
@@ -111,13 +117,18 @@ function displayError() {
     }
 }
 
-// // CLEAR TRANSACTIONS
-// function clearTransactions() {
-//     items.remove();
-//     positiveNumbers = [];
-//     negativeNumbers = [];
-// }
 
+// CLEAR TRANSACTIONS
+function clearTransactions() {
+    items.innerHTML = '';
+    positiveNumbers = [];
+    negativeNumbers = [];
+    arrays();
+    calculation();
+    addTransaction();
+}
+
+// CLEAR FIELDS
 function clearFields() {
     text.value = '';
     amount.value = '';
@@ -126,7 +137,7 @@ function clearFields() {
 
 // EVENT LISTENERS
 addBtn.addEventListener('click', addTransaction);
-// clearBtn.addEventListener('click', clearTransactions)
+clearBtn.addEventListener('click', clearTransactions)
 deleteBtn.addEventListener('click', deleteItem);
 
 (function() {
