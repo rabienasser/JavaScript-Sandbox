@@ -8,10 +8,9 @@ const addBtn = document.querySelector('.add-btn');
 const clearBtn = document.querySelector('.clear-btn');
 const incomeBal = document.querySelector('.in-bal')
 const expenseBal = document.querySelector('.ex-bal')
-const deleteBtn = document.createElement('button');
+
 
 let list;
-
 
 // CURRENCY FORMATTER
 const formatter = new Intl.NumberFormat('en-US', {
@@ -42,6 +41,30 @@ function addTransaction() {
 
         items.appendChild(list);
 
+           // DELETE BUTTON CREATION
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-btn');
+        deleteBtn.innerHTML = 'X';
+        list.appendChild(deleteBtn);
+
+          // DELETE LIST ITEM
+    function deleteItem() {
+        list.remove();
+
+        if(list.classList.contains('negative-item')) {
+            negativeNumbers.pop(amount.value)
+            
+        }
+        else {
+            positiveNumbers.pop(amount.value)
+        }
+
+        arrays();
+        calculation();
+    }
+
+    deleteBtn.addEventListener('click', deleteItem);
+
     
         if(amount.value.includes('-')) {
             list.classList.add('negative-item');
@@ -59,8 +82,8 @@ function addTransaction() {
     }
     clearFields();
     calculation();
-    deleteButton();
 }
+
 
 // CREATE ARRAYS OF POS AND NEG AMOUNTS
 function arrays() {
@@ -80,35 +103,13 @@ function arrays() {
 }
 
 
-// DELETE BUTTON CREATION
-function deleteButton() {
-    deleteBtn.classList.add('delete-btn');
-    deleteBtn.innerHTML = `X`;
-    list.appendChild(deleteBtn);
-}
-
-// DELETE LIST ITEM
-function deleteItem() {
-    list.remove();
-
-    if(list.classList.contains('negative-item')) {
-        negativeNumbers.pop(amount.value)
-        
-    }
-    else {
-        positiveNumbers.pop(amount.value)
-    }
-
-    arrays();
-    calculation();
-}
-
 // DISPLAY POSITIVE AND NEGATIVE SUM IN UI
 function calculation() {
     incomeBal.textContent = formatter.format(posSum);
     expenseBal.textContent = formatter.format(negSum);
     balance.textContent = formatter.format(posSum + negSum);
 }
+
 
 // DISPLAY ERROR ON EMPTY FIELDS
 function displayError() {
@@ -137,9 +138,10 @@ function clearFields() {
 
 // EVENT LISTENERS
 addBtn.addEventListener('click', addTransaction);
-clearBtn.addEventListener('click', clearTransactions)
-deleteBtn.addEventListener('click', deleteItem);
+clearBtn.addEventListener('click', clearTransactions);
 
+
+// ENABLE ENTER KEY
 (function() {
     text.addEventListener('keydown', (e) => {
         if(e.code === 'Enter') {
