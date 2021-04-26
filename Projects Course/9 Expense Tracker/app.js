@@ -8,6 +8,10 @@ const addBtn = document.querySelector('.add-btn');
 const clearBtn = document.querySelector('.clear-btn');
 const incomeBal = document.querySelector('.in-bal')
 const expenseBal = document.querySelector('.ex-bal')
+const deleteBtn = document.createElement('button');
+
+let list;
+
 
 // CURRENCY FORMATTER
 const formatter = new Intl.NumberFormat('en-US', {
@@ -27,7 +31,7 @@ let negSum = 0;
 
 // ADD TRANSACTION, INCOME AND EXPENSES
 function addTransaction() {
-    const list = document.createElement('div');
+     list = document.createElement('div');
     list.classList.add('item');
 
     if(text.value !== '' && amount.value !== '' && amount.value != 0) {
@@ -36,17 +40,8 @@ function addTransaction() {
             <p>${amount.value}</p>
         `;
 
-    // DELETE BUTTON
-    const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('delete-btn');
-    deleteBtn.innerHTML = `X`;
-    list.appendChild(deleteBtn);
-
-    // list.addEventListener('mouseover', (e) => {
-    //     deleteBtn.style.display = 'block';
-    // })
-    
         items.appendChild(list);
+
     
         if(amount.value.includes('-')) {
             list.classList.add('negative-item');
@@ -74,6 +69,32 @@ function addTransaction() {
     }
     clearFields();
     calculation();
+    deleteButton();
+}
+
+
+
+// DELETE BUTTON CREATION
+function deleteButton() {
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.innerHTML = `X`;
+    list.appendChild(deleteBtn);
+}
+
+// DELETE LIST ITEM
+function deleteItem() {
+    list.remove();
+    positiveNumbers.pop(amount.value)
+    const posNumArr = positiveNumbers.map((n) => {
+        return parseFloat(n, 10);
+    })
+     posSum = posNumArr.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    
+
+    calculation();
+
 }
 
 // DISPLAY POSITIVE AND NEGATIVE SUM IN UI
@@ -106,6 +127,7 @@ function clearFields() {
 // EVENT LISTENERS
 addBtn.addEventListener('click', addTransaction);
 // clearBtn.addEventListener('click', clearTransactions)
+deleteBtn.addEventListener('click', deleteItem);
 
 (function() {
     text.addEventListener('keydown', (e) => {
