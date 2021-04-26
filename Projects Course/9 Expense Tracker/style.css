@@ -84,6 +84,7 @@ h1 {
     margin: 12px;
     padding: 5px 10px;
     width: 100%;
+    position: relative;
 }
 
 #history .negative-item {
@@ -129,4 +130,15 @@ button:hover {
     position: absolute;
     top: 20px;
     right: 40px;
+}
+
+.delete-btn {
+   position: absolute;
+   padding: 5px;
+   font-size: 12px;
+   top: 0px;
+   left: -20px;
+   display: none;
+   cursor: pointer;
+   transition: opacity 0.3s ease-out;
 }

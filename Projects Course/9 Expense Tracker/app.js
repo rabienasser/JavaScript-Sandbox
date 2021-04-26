@@ -35,7 +35,20 @@ function addTransaction() {
             <h3>${text.value}</h3>
             <p>${amount.value}</p>
         `;
-        
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.innerHTML = `X`;
+    list.appendChild(deleteBtn);
+
+    list.addEventListener('mouseover', (e) => {
+        deleteBtn.style.display = 'block';
+    })
+    list.addEventListener('mouseout', (e) => {
+        deleteBtn.style.display = 'none';
+    })
+    
+    
         items.appendChild(list);
     
         if(amount.value.includes('-')) {
