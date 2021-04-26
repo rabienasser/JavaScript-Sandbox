@@ -30,24 +30,21 @@ function addTransaction() {
     const list = document.createElement('div');
     list.classList.add('item');
 
-    if(text.value && amount.value !== '') {
+    if(text.value !== '' && amount.value !== '' && amount.value != 0) {
         list.innerHTML = `
             <h3>${text.value}</h3>
             <p>${amount.value}</p>
         `;
 
+    // DELETE BUTTON
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
     deleteBtn.innerHTML = `X`;
     list.appendChild(deleteBtn);
 
-    list.addEventListener('mouseover', (e) => {
-        deleteBtn.style.display = 'block';
-    })
-    list.addEventListener('mouseout', (e) => {
-        deleteBtn.style.display = 'none';
-    })
-    
+    // list.addEventListener('mouseover', (e) => {
+    //     deleteBtn.style.display = 'block';
+    // })
     
         items.appendChild(list);
     
@@ -96,6 +93,8 @@ function displayError() {
 // // CLEAR TRANSACTIONS
 // function clearTransactions() {
 //     items.remove();
+//     positiveNumbers = [];
+//     negativeNumbers = [];
 // }
 
 function clearFields() {
