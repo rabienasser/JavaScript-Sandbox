@@ -37,35 +37,13 @@ function addTransaction() {
         list.innerHTML = `
             <h3>${text.value}</h3>
             <p>${amount.value}</p>
+            <button class="delete-btn">X</button>
         `;
 
         items.appendChild(list);
+        document.querySelector('.delete-btn').addEventListener('click', deleteItem)
 
-           // DELETE BUTTON CREATION
-        const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('delete-btn');
-        deleteBtn.innerHTML = 'X';
-        list.appendChild(deleteBtn);
 
-          // DELETE LIST ITEM
-    function deleteItem() {
-        list.remove();
-
-        if(list.classList.contains('negative-item')) {
-            negativeNumbers.pop(amount.value)
-            
-        }
-        else {
-            positiveNumbers.pop(amount.value)
-        }
-
-        arrays();
-        calculation();
-    }
-
-    deleteBtn.addEventListener('click', deleteItem);
-
-    
         if(amount.value.includes('-')) {
             list.classList.add('negative-item');
             negativeNumbers.push(amount.value);
@@ -100,6 +78,30 @@ function arrays() {
      posSum = posNumArr.reduce(function(a, b){
         return a + b;
     }, 0);
+}
+
+
+// // DELETE BUTTON CREATION
+// const deleteBtn = document.createElement('button');
+// deleteBtn.classList.add('delete-btn');
+// deleteBtn.innerHTML = 'X';
+// list.appendChild(deleteBtn);
+
+
+// DELETE LIST ITEM
+function deleteItem() {
+    list.remove();
+
+    if(list.classList.contains('negative-item')) {
+        negativeNumbers.pop(amount.value)
+        
+    }
+    else {
+        positiveNumbers.pop(amount.value)
+    }
+
+    arrays();
+    calculation();
 }
 
 
@@ -139,6 +141,7 @@ function clearFields() {
 // EVENT LISTENERS
 addBtn.addEventListener('click', addTransaction);
 clearBtn.addEventListener('click', clearTransactions);
+// deleteBtn.addEventListener('click', deleteItem);
 
 
 // ENABLE ENTER KEY
