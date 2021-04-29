@@ -2,8 +2,8 @@ const userName = document.querySelector('.username')
 const email = document.querySelector('.email')
 const password = document.querySelector('.password')
 const confirmPassword = document.querySelector('.confirm-password')
-const submit = document.querySelector('button')
 const small = document.querySelectorAll('small')
+const form = document.querySelector('form')
 
 
 function createUserName() {
@@ -46,9 +46,10 @@ function createPassword() {
         password.classList.add('invalid')
         error.textContent = 'Password must not exceed 15 characters'
         error.style.display = 'flex'
-    } else {
+    } else if(password.value.length >= 8 && password.value.length <= 15){
         if(!re.test(password.value)) {
             password.classList.add('invalid')
+            error.textContent = 'Password must contain at least 1 uppercase letter, 1 number, and 1 special character'
             error.style.display = 'flex'
         } else {
             password.classList.add('valid')
@@ -61,7 +62,7 @@ function createPassword() {
 function checkPassword() {
     const error = document.querySelector('.confirm-error')
 
-    if(password.value !== confirmPassword.value || confirmPassword.value === '' || password.classList.contains('invalid')) {
+    if(password.value !== confirmPassword.value || confirmPassword.value === '') {
         confirmPassword.classList.add('invalid')
         error.style.display = 'flex'
     } else {
@@ -71,7 +72,7 @@ function checkPassword() {
 }
 
 
-submit.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     createUserName();
     createEmail();
     createPassword();
