@@ -84,9 +84,24 @@ input:focus {
 }
 
 .invalid {
-    border:  2px red solid;
+    border:  2px var(--error-color) solid;
 }
 
 .invalid:focus {
     outline: none;
+}
+
+.valid {
+    border: 2px var(--success-color) solid;
+}
+
+valid:focus {
+    outline: none;
+}
+
+small {
+    text-align: left;
+    margin-top: 3px;
+    color: var(--error-color);
+    display: none;
 }
