@@ -82,3 +82,11 @@ button:hover {
 input:focus {
    outline:  2px solid rgb(149, 193, 199);
 }
+
+.invalid {
+    border:  2px red solid;
+}
+
+.invalid:focus {
+    outline: none;
+}

@@ -6,19 +6,56 @@ const submit = document.querySelector('button')
 
 
 function createUserName() {
-    console.log(userName.value)
+    re = /^(\w{1})((\w|\W){2,15})$/;
+
+    if(!re.test(userName.value)) {
+        console.log('Username must be between 3 and 15 characters')
+        userName.classList.add('invalid')
+    } else {
+        console.log('success')
+    }
 }
+
 
 function createEmail() {
-    console.log(email.value)
+    re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
+
+    if(!re.test(email.value)) {
+        console.log('Please enter a valid email address')
+        email.classList.add('invalid')
+    } else {
+        console.log('success')
+    }
 }
+
 
 function createPassword() {
-    console.log(password.value)
+    re = /^(?=.*\d)(?=.*\W)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z\W]{8,15}$/;
+
+    if(password.value.length < 8) {
+       console.log('password must be at least 8 characters')
+       password.classList.add('invalid')
+    } else if(password.value.length > 15) {
+        console.log('password must not exceed 15 characters')
+        password.classList.add('invalid')
+    } else {
+        if(!re.test(password.value)) {
+            console.log('Password must contain at least 1 uppercase letter, 1 number, and 1 special character')
+            password.classList.add('invalid')
+        } else {
+            console.log('success')
+        }
+    }
 }
 
+
 function checkPassword() {
-    console.log(confirmPassword.value)
+    if(password.value !== confirmPassword.value) {
+        console.log('passwords do not match')
+        confirmPassword.classList.add('invalid')
+    } else {
+        console.log('success')
+    }
 }
 
 
