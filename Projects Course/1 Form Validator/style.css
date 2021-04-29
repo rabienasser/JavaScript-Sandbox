@@ -17,6 +17,7 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: whitesmoke;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .form-container {
@@ -75,8 +76,9 @@ button {
 
 button:hover {
     cursor: pointer;
+    background-color: rgb(149, 193, 199);
 }
 
-/* input:focus {
-   outline:  green;
-} */
+input:focus {
+   outline:  2px solid rgb(149, 193, 199);
+}
