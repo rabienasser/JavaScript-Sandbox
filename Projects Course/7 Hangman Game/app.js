@@ -7,7 +7,8 @@ const notification = document.getElementById('notification-container');
 
 const figurePart = document.querySelectorAll('.figure-part');
 
-const word = ['Real Madrid', 'Dortmund', 'Roma', 'Newcastle', 'Sevilla', 'Leipzig', 'Atletico', 'Porto', 'Ajax', 'Liverpool', 'Leeds', 'Leverkusen', 'Napoli', 'Feyenoord', 'Arsenal', 'Everton', 'Atalanta', 'Leicester', 'Frankfurt', 'Valencia', 'Lazio', 'Wolves', 'Athletic Club', 'Fiorentina', 'Celtic', 'Rangers', 'Zenit', 'Barcelona', 'Wolfsburg', 'West Ham', 'Basel', 'Torino', 'Inter Milan', 'Spurs', 'Getafe', 'Parma'];
+const word = ['Real Madrid', 'Dortmund', 'Roma', 'Newcastle', 'Sevilla', 'Leipzig', 'Atletico', 'Porto', 'Ajax', 'Liverpool', 'Leeds', 'Leverkusen', 'Napoli', 'Feyenoord', 'Arsenal', 'Everton', 'Atalanta', 'Leicester', 'Frankfurt', 'Valencia', 'Lazio', 'Wolves', 'Athletic Club', 'Fiorentina', 'Celtic', 'Rangers', 'Zenit', 'Barcelona', 'Wolfsburg', 'West Ham', 'Basel', 'Torino', 'Inter Milan', 'Spurs', 'Getafe', 'Parma', 'Lyon', 'Lille', 'Monaco', 'Sampdoria', 'Southampton', 'Paris Saint Germain', 'Werder Bremen', 'Besiktas', 'Bayern Munich', 'Schalke'];
+
 
 let selectedWord = word[Math.floor(Math.random() * word.length)];
 
@@ -16,24 +17,52 @@ const wrongLetters = [];
 
 
 // Show hidden word
-(function displayWord() {
-    wordEl.innerHTML = `
-    ${selectedWord
-    .split('')
-    .map(letter => `
-        <span class="letter">
-        ${correctLetters.includes(letter) ? letter : ''}
-        </span>
-    `).join('')}
-    `;
+function displayWord() {
+        wordEl.innerHTML = `
+        ${selectedWord
+        .split('')
+        .map(
+            letter => {
+                if(letter === ' ') {
+                    return `<span class="space"></span>`
+                } else {
+                    return `
+                    <span class="letter">
+            ${correctLetters.includes(letter) ? letter : ''}
+            </span>
+                    `
+                }
+            }
+            
+        ).join('')}
+        `;
 
-    const innerWord = wordEl.innerText.replace(/\n/g, '');
+        const innerWord = wordEl.innerText.replace(/\n/g, '');
 
-    if(innerWord === selectedWord) {
-        finalMessage.innerText = 'Congratulations! You Won!';
-        popup.style.display = 'flex';
-    }
-})()
+        if(innerWord === selectedWord.replace(/\s/g, '')) {
+            finalMessage.innerText = 'Congratulations! You Won! 😃';
+            popup.style.display = 'flex';
+        }
+}
+
+
+    // Display Wrong Letters
+function updateWrongLettersEl() {
+     wrongLettersEl.innerHTML = `
+        ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
+        ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+            `;
+        }
+
+
+// Show notification
+function showNotification() {
+    notification.classList.add('show');
+  
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 2000);
+  }
 
 
 // Keydown letter press
@@ -47,7 +76,20 @@ window.addEventListener('keydown', e => {
                 correctLetters.push(letter);
 
                 displayWord();
-            } else
+            } else {
+                showNotification();
+            }
+        } else {
+            if (!wrongLetters.includes(letter)) {
+                wrongLetters.push(letter);
+        
+                updateWrongLettersEl();
+              } else {
+                showNotification();
+              }
         }
     }
 })
+
+
+displayWord();
