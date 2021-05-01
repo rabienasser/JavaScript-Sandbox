@@ -7,25 +7,43 @@ const notification = document.getElementById('notification-container');
 
 const figurePart = document.querySelectorAll('.figure-part');
 
-const word = ['Real Madrid', 'Dortmund', 'Roma', 'Newcastle', 'Sevilla', 'Leipzig', 'Atletico', 'Porto', 'Ajax', 'Liverpool', 'Leeds', 'Leverkusen', 'Napoli', 'Feyenoord', 'Arsenal', 'Everton', 'Atalanta', 'Leicester', 'Frankfurt', 'Valencia', 'Lazio', 'Wolves', 'Athletic Club', 'Fiorentina', 'Celtic', 'Rangers', 'Zenit', 'Barcelona', 'Wolfsburg', 'West Ham', 'Basel', 'Torino', 'Inter Milan', 'Spurs', 'Getafe', 'Parma'];
+const word = ['Real Madrid', 'Dortmund'];
+
 
 let selectedWord = word[Math.floor(Math.random() * word.length)];
+
 
 const correctLetters = [];
 const wrongLetters = [];
 
 
 // Show hidden word
-(function displayWord() {
-    wordEl.innerHTML = `
+function displayWord() {
+    if(selectedWord.includes(' ')) {
+        wordEl.innerHTML = `
     ${selectedWord
     .split('')
     .map(letter => `
         <span class="letter">
         ${correctLetters.includes(letter) ? letter : ''}
         </span>
-    `).join('')}
+    `)
+    .join('')}
     `;
+    } else {
+        wordEl.innerHTML = `
+        ${selectedWord
+        .split('')
+        .map(letter => `
+            <span class="letter">
+            ${correctLetters.includes(letter) ? letter : ''}
+            </span>
+        `)
+        .join('')}
+        `;
+    }
+
+    console.log(selectedWord)
 
     const innerWord = wordEl.innerText.replace(/\n/g, '');
 
@@ -33,7 +51,25 @@ const wrongLetters = [];
         finalMessage.innerText = 'Congratulations! You Won!';
         popup.style.display = 'flex';
     }
-})()
+}
+
+displayWord();
+
+
+// Update Wrong Letters
+function updateWrongLettersEl() {
+    console.log('Update wrong')
+}
+
+
+// Show notification
+function showNotification() {
+    notification.classList.add('show');
+
+    setTimeout(() => {
+        notification.classList.remove('show')
+    }, 2000)
+}
 
 
 // Keydown letter press
@@ -47,7 +83,17 @@ window.addEventListener('keydown', e => {
                 correctLetters.push(letter);
 
                 displayWord();
-            } else
+            } else {
+                showNotification();
+            }
+        } else {
+            if(!wrongLetters.includes(letter)) {
+                wrongLetters.push(letter);
+
+                updateWrongLettersEl();
+            } else {
+                showNotification();
+            }
         }
     }
 })
