@@ -18,7 +18,7 @@ function createList() {
     .map(a => a.value)
     .forEach((city, index) => {
         const listItem = document.createElement('li')
-        
+
         listItem.setAttribute('data-index', index);
 
         listItem.innerHTML = `
@@ -32,5 +32,30 @@ function createList() {
         listItems.push(listItem);
 
         draggableList.appendChild(listItem)
+    });
+
+    addEventListeners();
+}
+
+
+function addEventListeners() {
+    const draggables = document.querySelectorAll('.draggable')
+    const dragListItems = document.querySelectorAll('.draggable-list li')
+
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', dragStart)
     })
+
+    dragListItems.forEach(item => {
+        item.addEventListener('dragover', dragOver)
+        item.addEventListener('drop', dragDrop)
+        item.addEventListener('dragenter', dragEnter)
+        item.addEventListener('dragleave', dragLeave)
+    })
+}
+
+
+function dragStart() {
+    
 }
