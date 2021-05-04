@@ -1,5 +1,5 @@
 const draggableList = document.getElementById('draggable-list')
-const list = document.getElementById('check')
+const checkBtn = document.getElementById('check')
 
 const largestCities = ['New York City', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'San Diego', 'Dallas', 'San Jose'];
 
@@ -91,3 +91,20 @@ function swapItems(fromIndex, toIndex) {
     listItems[fromIndex].appendChild(itemTwo);
     listItems[toIndex].appendChild(itemOne);
 }
+
+
+function checkOrder() {
+    listItems.forEach((item, index) => {
+        const cityName = item.querySelector('.draggable').innerText;
+
+        if(cityName != largestCities[index]) {
+            item.classList.add('wrong')
+        } else {
+            item.classList.remove('wrong')
+            item.classList.add('right')
+        }
+    })
+}
+
+
+checkBtn.addEventListener('click', checkOrder);
