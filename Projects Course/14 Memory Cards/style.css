@@ -33,9 +33,17 @@ body {
     padding: 10px 15px;
 }
 
+.btn:active {
+    transform: translateY(4px);
+}
+
 .btn-small {
     font-size: 12px;
     padding: 5px 10px;
+}
+
+i {
+    padding-right: 5px;
 }
 
 .btn-ghost {
@@ -85,6 +93,7 @@ body {
     border-radius: 5px;
     height: 100%;
     position: relative;
+    transform-style: preserve-3d;
     transition: transform 0.4s ease;
 }
 
@@ -94,6 +103,7 @@ body {
 
 .inner-card-front,
 .inner-card-back {
+    backface-visibility: hidden;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -161,3 +171,33 @@ body {
     opacity: 1;
     z-index: 2;
 }
+
+.add-container h1 {
+    margin: 20px 0;
+    font-size: 3rem;
+}
+
+.add-container h1 button {
+    font-size: 15px;
+    margin: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.add-container label {
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.add-container textarea {
+    border: 1px solid #aaa;
+    height: 75px;
+    min-width: 500px;
+    max-width: 100%;
+    padding: 12px;
+}
+
