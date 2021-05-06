@@ -17,25 +17,27 @@ let currentActiveCard = 0;
 const cardsEl = [];
 
 // Store card data
-const cardData = [
-    {
-        question: 'What\'s my favorite color?',
-        answer: 'white'
-    },
-    {
-        question: 'What\'s my favorite movie?',
-        answer: 'Lord of the Rings'
-    },
-    {
-        question: 'What\'s my favorite sport?',
-        answer: 'soccer'
-    }
-];
+const cardsData = getCardsData();
+
+// const cardsData = [
+//     {
+//         question: 'What\'s my favorite color?',
+//         answer: 'white'
+//     },
+//     {
+//         question: 'What\'s my favorite movie?',
+//         answer: 'Lord of the Rings'
+//     },
+//     {
+//         question: 'What\'s my favorite sport?',
+//         answer: 'soccer'
+//     }
+// ];
 
 
 // Create all cards
 function createCards() {
-    cardData.forEach((data, index) => {
+    cardsData.forEach((data, index) => {
         createCard(data, index)
     })
 }
@@ -80,4 +82,61 @@ function updateCurrentText() {
     current.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
 }
 
+// Get Cards from local storage
+function getCardsData() {
+    const cards = JSON.parse(localStorage.getItem('cards'))
+    return cards === null ? [] : cards;
+}
+
 createCards();
+
+
+// Event Listeners
+
+// Next Button
+nextBtn.addEventListener('click', () => {
+    cardsEl[currentActiveCard].className = 'card left';
+
+    currentActiveCard += 1;
+
+    if(currentActiveCard > cardsEl.length - 1) {
+        currentActiveCard = cardsEl.length -1;
+    }
+
+    cardsEl[currentActiveCard].className = 'card active'
+
+    updateCurrentText()
+})
+
+// Previous Button
+prevBtn.addEventListener('click', () => {
+    cardsEl[currentActiveCard].className = 'card';
+
+    currentActiveCard -= 1;
+
+    if(currentActiveCard < 0) {
+        currentActiveCard  = 0;
+    }
+
+    cardsEl[currentActiveCard].className = 'card active'
+
+    updateCurrentText()
+})
+
+// Show Add Container
+addNewCardBtn.addEventListener('click', () => {
+    addContainer.classList.add('show')
+})
+
+// Hide Add Container
+hideBtn.addEventListener('click', () => {
+    addContainer.classList.remove('show')
+})
+
+// Add card button
+addCardBtn.addEventListener('click', () => {
+    const questionVal = question.value;
+    const answerVal = answer.value;
+
+    console.log(questionVal, answerVal)
+})
