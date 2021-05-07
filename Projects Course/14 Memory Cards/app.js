@@ -9,6 +9,7 @@ const hideBtn = document.getElementById('hide')
 const question = document.getElementById('question')
 const answer = document.getElementById('answer')
 const addContainer = document.getElementById('add-container')
+const deleteCardBtn = document.getElementById('delete-card')
 
 // Keep track of current card
 let currentActiveCard = 0;
@@ -66,6 +67,11 @@ function createCard(data, index) {
         </div>
     `;
 
+    const deleteCard = document.createElement('button')
+    deleteCard.className = 'delete-card'
+    deleteCard.innerHTML = 'x'
+    card.appendChild(deleteCard)
+
     card.addEventListener('click', () => card.classList.toggle('show-answer'))
 
     // Add to DOM cards
@@ -75,6 +81,7 @@ function createCard(data, index) {
 
     updateCurrentText();
 }
+createCards();
 
 
 // Show Number of Cards
@@ -88,8 +95,11 @@ function getCardsData() {
     return cards === null ? [] : cards;
 }
 
-createCards();
-
+// Add card to local storage
+function setCardsData(cards) {
+    localStorage.setItem('cards', JSON.stringify(cards))
+    window.location.reload();
+}
 
 // Event Listeners
 
@@ -123,6 +133,7 @@ prevBtn.addEventListener('click', () => {
     updateCurrentText()
 })
 
+
 // Show Add Container
 addNewCardBtn.addEventListener('click', () => {
     addContainer.classList.add('show')
@@ -138,5 +149,31 @@ addCardBtn.addEventListener('click', () => {
     const questionVal = question.value;
     const answerVal = answer.value;
 
-    console.log(questionVal, answerVal)
+    if(questionVal.trim() && answerVal.trim()) {
+        const newCard = {question: questionVal, answer: answerVal}
+
+        createCard(newCard);
+
+        questionVal.value = '';
+        answerVal.value = '';
+
+        addContainer.classList.remove('show')
+
+        cardsData.push(newCard)
+        setCardsData(cardsData)
+    }
 })
+
+// Clear cards 
+clearCardsBtn.addEventListener('click', () => {
+    localStorage.clear();
+    cardsContainer.innerHTML = ''
+    window.location.reload();
+})
+
+
+function remove(e) {
+    if(e.target.parentElement.classList.contains('delete-card')) {
+        console.log(1234)
+    }
+}
