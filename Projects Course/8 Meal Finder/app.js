@@ -10,7 +10,9 @@ const search = document.getElementById('search'),
 // Search meal and fetch from API
 function searchMeal(e) {
     // Clear single meal when new search is made
-    single_mealEl.innerHTML = '';
+    if(mealsEl.innerHTML !== ''){
+        single_mealEl.innerHTML = '';
+      }
 
     // Get search term
     const term = search.value;
@@ -98,16 +100,13 @@ function randomMeal() {
         .then(res => res.json())
         .then(data => {
             const meal = data.meals[0];
+            console.log(data)
 
             addMealToDOM(meal);
         })
 
-        if(mealsEl !== '') {
             mealsEl.innerHTML = '';
             resultHeading.innerHTML = '';
-        }
-
-
 }
 
 
