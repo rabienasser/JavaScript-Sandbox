@@ -92,9 +92,29 @@ function addMealToDOM(meal) {
 }
 
 
+// Add random meal
+function randomMeal() {
+    fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+        .then(res => res.json())
+        .then(data => {
+            const meal = data.meals[0];
+
+            addMealToDOM(meal);
+        })
+
+        if(mealsEl !== '') {
+            mealsEl.innerHTML = '';
+            resultHeading.innerHTML = '';
+        }
+
+
+}
+
+
 
 // Event Listeners
     submit.addEventListener('submit', searchMeal)
+    random.addEventListener('click', randomMeal)
 
     mealsEl.addEventListener('click', e => {
         const mealInfo = e.path.find(item => {
