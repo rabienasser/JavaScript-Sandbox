@@ -94,7 +94,6 @@ function deleteItem() {
 
     if(list.classList.contains('negative-item')) {
         negativeNumbers.pop(amount.value)
-        
     }
     else {
         positiveNumbers.pop(amount.value)

@@ -172,8 +172,3 @@ clearCardsBtn.addEventListener('click', () => {
 })
 
 
-function remove(e) {
-    if(e.target.parentElement.classList.contains('delete-card')) {
-        console.log(1234)
-    }
-}

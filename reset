@@ -1,0 +1,468 @@
+[33mcommit 62c7e583920f4d5e64bbdcee119e042bf1a25958[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Rabie <rabienasser2@gmail.com>
+Date:   Wed Apr 21 21:31:36 2021 -0400
+
+    fetch trial 1
+
+[33mcommit 0c028e050c52fda2e5900276a1bd858d8fa96edc[m
+Author: Rabie <rabienasser2@gmail.com>
+Date:   Wed Apr 21 19:13:26 2021 -0400
+
+    random word API
+
+[33mcommit 8d2959711413e458a70afad05700095446acc339[m
+Author: Rabie <rabienasser2@gmail.com>
+Date:   Wed Apr 21 17:33:54 2021 -0400
+
+    typing game UI
+
+[33mcommit 463b05edf16cb6101c0eec67026f7de7ecfa2ac3[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Apr 16 17:04:20 2021 -0400
+
+    typing game init
+
+[33mcommit 1d98b1da7bda616c7244363c54706d8fe4e2f830[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Apr 16 17:00:39 2021 -0400
+
+    infinite scroll complete
+
+[33mcommit 6c008f4e07263cbb18f05bf31288cea7ed367510[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 15 23:15:35 2021 -0400
+
+    infinite scroller html
+
+[33mcommit c16ff1a6784fc8284e03a6e6bf1c51a18f777cb7[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 15 23:05:03 2021 -0400
+
+    game complete
+
+[33mcommit 6e5766e68445128354f4df32796f08e8c50983de[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 15 21:53:24 2021 -0400
+
+    ball functionality
+
+[33mcommit 1c18898007b9b50648a1d923a544698f55950bdc[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 15 18:24:02 2021 -0400
+
+    paddle movement
+
+[33mcommit f8f967e9560bbbc732f3f872b5141c92414c844c[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 15 18:02:24 2021 -0400
+
+    bricks added
+
+[33mcommit 95275c2258368e78be385aae0dedd39a420c3d86[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Apr 14 23:09:37 2021 -0400
+
+    ball, paddle, score
+
+[33mcommit 8e6d1370717edd175ead86fcce23c5f5152282fe[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Apr 14 22:28:26 2021 -0400
+
+    UI Styling
+
+[33mcommit 6e8e2002d9f402f5adec73f9c0b397de9927d723[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Apr 14 21:50:33 2021 -0400
+
+    breakout game
+
+[33mcommit 375f7feef88bb100f5ba2bf2b36ac762c3be9ffe[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Apr 12 16:49:27 2021 -0400
+
+    Dom Arr complete
+
+[33mcommit 7af0b739578e423a1aafcd0ca2be01131c5854bf[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Apr 12 15:35:17 2021 -0400
+
+    DOMArray update
+
+[33mcommit 47cc4464ce51b743df4b187944bac3f726d0edeb[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Apr 11 12:46:12 2021 -0400
+
+    DOM Array update
+
+[33mcommit 31bdcd55d8941dc1471e85cc303049421d93bd46[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Apr 11 11:55:48 2021 -0400
+
+    projects update
+
+[33mcommit 1f152f857fd0086dada541febc9abd16a66ce112[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sat Apr 10 20:53:35 2021 -0400
+
+    course update
+
+[33mcommit 0b31aa2db61ecffa863ed65f4bfe2859f2ae4958[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sat Apr 10 13:52:06 2021 -0400
+
+    update
+
+[33mcommit 861c7e8367492a1b31e64011d7d098b101ffd216[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sat Apr 10 13:50:07 2021 -0400
+
+    form-init
+
+[33mcommit 7e0bd1fa5aae7e8b23995baceb3fb24415a08ca5[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sat Apr 10 13:47:19 2021 -0400
+
+    lyrics-app
+
+[33mcommit be3b1f9ac98f62f783be8130eb49ae42e6807090[m
+Merge: d99e3e8 d3263b6
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 8 23:15:50 2021 -0400
+
+    Merge branch 'master' of https://github.com/rabienasser/JavaScript-Sandbox
+
+[33mcommit d99e3e87eb0e9f12b567958597020d50642c0cc0[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 8 23:09:45 2021 -0400
+
+    asynchronous JS update
+
+[33mcommit d3263b6d396bea8d3f4811620b94ff8083b8fbd0[m
+Author: Rabie Nasser <78989414+rabienasser@users.noreply.github.com>
+Date:   Wed Apr 7 21:47:57 2021 -0400
+
+    Delete CRUD Front End (Webpack+Babel) directory
+
+[33mcommit e3c6f6f0eb972b67c86b2bd1a32488a95aad5f50[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Apr 7 21:44:18 2021 -0400
+
+    final
+
+[33mcommit 1b7afc05c80a6012b525d237987e4bb91a12f56e[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Apr 5 22:46:57 2021 -0400
+
+    microposts
+
+[33mcommit 6022fdf09c5665ddd256a782014129e2b6c52960[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Apr 5 22:12:24 2021 -0400
+
+    webpack and babel
+
+[33mcommit ba57b001104b3b98ec9993a4503113b5ce690ff6[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Apr 5 16:53:21 2021 -0400
+
+    init commit
+
+[33mcommit 38d8d382f35ba479100f641df6f4c02718cb819e[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Apr 5 16:34:38 2021 -0400
+
+    final Tracalorie commit
+
+[33mcommit ad3e84b6517e04ad4bafafe71247bc1fc29d3117[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Apr 5 16:02:43 2021 -0400
+
+    tracalorie update
+
+[33mcommit bc9fa931a934f9c7fb837d2cf8cd0a92e3e14ebb[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sat Apr 3 00:28:24 2021 -0400
+
+    tracalorie update
+
+[33mcommit 378224a9a3357faf0ae5f09c1c728ceb1925ff85[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sat Apr 3 00:11:09 2021 -0400
+
+    tracalorie update
+
+[33mcommit 23fd37f2164f203dac831b1d1ca50d1009d1670b[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Apr 2 17:56:03 2021 -0400
+
+    tracalorie update
+
+[33mcommit 54637bf2c4290b955be7be2036e2c4659a0987b8[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Apr 2 15:18:39 2021 -0400
+
+    tracalorie update
+
+[33mcommit 5bb8997ed31b562d4c82b2b0c4d3b8866d366dd2[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Apr 2 15:04:06 2021 -0400
+
+    sandbox update
+
+[33mcommit 0b0dd52c6f692697779cef48d9d59c6f90164812[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Apr 2 12:53:19 2021 -0400
+
+    Tracalorie update
+
+[33mcommit e6de662746641bc9ee23c1a4cf5b060b60974156[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 1 23:24:15 2021 -0400
+
+    sandbox update
+
+[33mcommit 5251ee5eb7abadf36e937c2f3a335dfb84034f97[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Apr 1 17:51:00 2021 -0400
+
+    sandbox update
+
+[33mcommit d026c1ffff861eb1bee862518280fdf5e2d02dbd[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 31 22:54:15 2021 -0400
+
+    sandbox update
+
+[33mcommit 9065b7f915fba737cba12a9f69d48378726eb3e8[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 31 20:03:57 2021 -0400
+
+    sandbox update
+
+[33mcommit 7c6f090ea33674aafcd28b78e073eeacb035eff9[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Tue Mar 30 22:24:19 2021 -0400
+
+    JS patterns update
+
+[33mcommit 33784d9a15a7372c3576f32475fe25e9f6bcdd1a[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Mar 28 21:56:25 2021 -0400
+
+    ES6 material update
+
+[33mcommit c0ba9e89e66445d53e7cc8fed06bab0d2f3f5ec6[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Mar 28 17:00:29 2021 -0400
+
+    JS NEw Features
+
+[33mcommit 7be44f0007bcf687fcb672a9389eae86ed9ce667[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Mar 28 15:26:26 2021 -0400
+
+    sandbox re-structure
+
+[33mcommit 4bd4da964b36db1fc27d9ecc763318c955c964e6[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Mar 28 14:59:10 2021 -0400
+
+    Regex update
+
+[33mcommit 0c4f0f111db1fea8107cb355cc093b08e55d02d4[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Mar 26 17:45:20 2021 -0400
+
+    sandbox update
+
+[33mcommit 8a7c7c95d16586756dcf152e84f9ff5e07a72d0c[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Mar 26 15:50:04 2021 -0400
+
+    sandbox update
+
+[33mcommit 65a400970520d57ddaf01decadeb19084f2540d4[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 25 16:25:26 2021 -0400
+
+    token update
+
+[33mcommit 7ec2b9a842e8d37d85593679f9a352700fde3799[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 25 15:44:08 2021 -0400
+
+    token update
+
+[33mcommit 3e3dddb4f5637320f73777fd09e95a65e2ed24b8[m[33m ([m[1;31morigin/token[m[33m)[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 25 15:33:42 2021 -0400
+
+    token update
+
+[33mcommit d8abeebfe38b0f3c664a5bfedbcb0cc6d1635b15[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 25 15:28:25 2021 -0400
+
+    token update
+
+[33mcommit 3f938934696bad0edb2dbe1bc03ae729422a89dd[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 25 15:20:14 2021 -0400
+
+    token update
+
+[33mcommit 2d4856e1a3601531e45ef0d1d770a7db60da39e0[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 24 22:50:12 2021 -0400
+
+    sandbox update
+
+[33mcommit fdebef5f3ef98e7825c5019b8531def50dd0eb50[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 24 19:58:18 2021 -0400
+
+    update
+
+[33mcommit 9e34e0da58195fed75b68bbe07f36a836fcbb5d5[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 24 19:56:44 2021 -0400
+
+    update
+
+[33mcommit 6f9b50743988ed53832ebdec29a8b088d30c95c2[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 24 19:45:21 2021 -0400
+
+    sandbox update
+
+[33mcommit 5ef5dcdd820e50d08db0ed8706ee4b973d7d8948[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 24 19:39:40 2021 -0400
+
+    sandbox project update
+
+[33mcommit e28d95ac140923a5df98c8676423d5c23e984a92[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Mar 22 23:18:12 2021 -0400
+
+    async update
+
+[33mcommit ba8a2e6dd7d129611538104c55ddc6d3672c1215[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Mar 22 10:50:23 2021 -0400
+
+    sandbox update
+
+[33mcommit bffcccdefcfc794dd8e28fbc5216c6ede59f77b4[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Mar 21 18:43:27 2021 -0400
+
+    sandbox update
+
+[33mcommit b814ab1abb576867af2e91a79b2550fb2938b156[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sun Mar 21 15:51:35 2021 -0400
+
+    sandbox update
+
+[33mcommit e651fe78d7223da2466722d01f9e31a0c4fff5ae[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Mar 19 16:25:15 2021 -0400
+
+    sandbox update
+
+[33mcommit 27abbb21fa7e0d27655025920eaf5ca12497385b[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 18 16:02:43 2021 -0400
+
+    update
+
+[33mcommit 675772070edf7f068a75b53264eba9e97948fe74[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 18 14:24:27 2021 -0400
+
+    project update
+
+[33mcommit d4f4cba965f39fb84cc87ed9df9686ec53533ce4[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 18 00:18:57 2021 -0400
+
+    sandbox project update
+
+[33mcommit 841a7c3a64fa614e2dd1fbfc8972f6dd82ff0227[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 17 15:28:11 2021 -0400
+
+    sandbox project update
+
+[33mcommit 21123c198c1b39854bf47bee9d35f6bc0eda6d0e[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Tue Mar 16 21:41:04 2021 -0400
+
+    sandbox update
+
+[33mcommit c66e1f46c2712768fccdaae77094cd2c50bac015[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Tue Mar 16 13:48:27 2021 -0400
+
+    sandbox update
+
+[33mcommit 5bf490b5fd44b41b563123ddd8deb8b29b4b5a5a[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Mar 15 23:37:35 2021 -0400
+
+    sandbox update
+
+[33mcommit 14390dfbb3cc4c0702f6bc0766f1f9ee00f663de[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Mar 15 00:01:54 2021 -0400
+
+    update
+
+[33mcommit 6ba869d35b3ca19f877da52a21ceeb51f7451307[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Sat Mar 13 13:53:08 2021 -0500
+
+    sandbox update
+
+[33mcommit f85fa45f9b8eaeb0c2ca267c677a738a673f4b43[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Fri Mar 12 13:25:32 2021 -0500
+
+    sanbox update
+
+[33mcommit e0d68e32dcbce474b189a773d54d1a56104cb51a[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Thu Mar 11 14:28:12 2021 -0500
+
+    random-story-project
+
+[33mcommit e1bd1dd6912e6ee539c2589606ed2fa0d64e378f[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 10 12:33:24 2021 -0500
+
+    update
+
+[33mcommit b21402701f775a405095532b83116b2c83ab0c3b[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 10 12:25:44 2021 -0500
+
+    Number game
+
+[33mcommit 7db198cd51be5d096a3fa23fec85920c437a69cb[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Wed Mar 10 10:17:43 2021 -0500
+
+    commit
+
+[33mcommit 74a94022000014d7862b26a60fdbc1b3abfcdef7[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Mar 8 23:35:45 2021 -0500
+
+    2nd commit
+
+[33mcommit c70d52cbafbe853903a667b8e934f938f3fd1951[m
+Author: Rabie Nasser <robienasser13@gmail.com>
+Date:   Mon Mar 8 14:03:37 2021 -0500
+
+    first commit
