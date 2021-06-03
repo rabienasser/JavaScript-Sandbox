@@ -8,6 +8,18 @@ fetch('https://jsonplaceholder.typicode.com/comments')
     // .then(data => console.log(data[212].email))  //fetching 212th comment[email]
 
 
+// Fetching using async/await
+const fetchComments = async () => {
+    try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/comments')
+        const data = await res.json()
+        console.log('AWAIT/ASYNC EXAMPLE:', data[5])
+    } catch {
+        console.error(err)
+    }
+}
+fetchComments()
+
 
 // Using POST method (instead of GET)
 fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -23,7 +35,7 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
         'Content-type': 'application/json'
     }
 })
-    .then(res => res.json()) 
+    .then(res => res.json())
     .then(data => console.log('Post Example', data))
 
 
@@ -81,35 +93,38 @@ function displayCountry(data) {
 
 
 // Chaining promises
-const getCountryData = function(country) {
+// const getCountryData = function(country) {
 
-    // Country 1
-    fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            displayCountry(data[0])
-            const neighbor = data[0].borders[0];
+//     // Country 1
+//     fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data)
+//             displayCountry(data[0])
+//             const neighbor = data[0].borders[0];
 
-            if(!neighbor) return;
+//             if(!neighbor) return;
 
-        // Country 2 (neighbor)
-            return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbor}`)
-        })
-        .then(res => res.json())
-        .then(data => displayCountry(data))
+//         // Country 2 (neighbor)
+//             return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbor}`)
+//         })
+//         .then(res => res.json())
+//         .then(data => displayCountry(data))
 
-        .catch(err => alert(err))  //Error handling w "catch". Only works if fetch promise is rejected
-};
+//         .catch(err => alert(err))  //Error handling w "catch". Only works if fetch promise is rejected
+// };
 
-getCountryData('morocco')
+// getCountryData('tanzania')
 
 
 
 
 function whereAmI(lat, lng) {
     fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
-    .then(res => res.json())
+    .then(res => {
+        if(!res.ok) throw new Error(`Problem with geocoding ${res.status}`)
+        return res.json()
+    })
     .then(data => {
         console.log(`You are in ${data.city}, ${data.country}`)
 
@@ -121,4 +136,101 @@ function whereAmI(lat, lng) {
     .catch(err => console.log(err, 'an error has occured'))
 }
 
-whereAmI(-33.933, 18.474)
+whereAmI(59.437, 24.7536)
+
+
+
+// Event loop in practice
+console.log('Test Start')   //Executes first because synchronous line of code
+setTimeout(() => console.log('0 second timer'), 0)  //Executes last because stored in callback queue which executes AFTER microtasks queue
+Promise.resolve('Resolved promise').then (res => console.log(res))  //Executes third because stored in Microtasks which gets priority over regular callbacks
+console.log('Test end')     //Executes second because synchronous line of code
+
+
+
+// Building a Promise
+const lotteryPromise = new Promise(function(resolve, reject) {
+    console.log('Lottery draw is happening')
+
+    setTimeout(() => {
+        if(Math.random() >= 0.5) {
+            resolve('You Win!')
+        } else {
+            reject('Sorry, you lost')
+        }
+    }, 3000)
+})
+
+
+// Consuming the Promise
+lotteryPromise.then(res => console.log(res))    //Displays succes message
+              .catch(err => console.error(err)) //Display failure message
+
+
+
+
+// Async Await
+const getCountryData = async function(country) {
+    try {
+        const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+        const data = await res.json()
+        console.log(data)
+        displayCountry(data[0])
+    
+        const neighbor = data[0].borders[0];
+    
+                if(!neighbor) return;
+    
+            // Country 2 (neighbor)
+            const res2 = await fetch(`https://restcountries.eu/rest/v2/alpha/${neighbor}`)
+            
+            const data2 = await res2.json()
+            displayCountry(data2)
+    } catch {
+        err => console.error(err)  //Error handling w "catch". Only works if fetch promise is rejected
+    }
+};
+
+getCountryData('haiti')
+
+
+
+// More promise practice
+const qualified = true
+
+const checkIfQualify = new Promise(function(resolve, reject) {
+
+    if(qualified) {
+        resolve('Your nation has qualified')
+    } else {
+        reject('Sorry your nation did not qualify')
+    }
+})
+
+checkIfQualify.then(answer => console.log(answer))
+       .catch(err => console.error(err))
+
+
+
+
+// Multiple promises
+function cleanRoom() {
+    return new Promise((resolve, reject) => {
+        resolve('Cleaned the room')
+    })
+}
+function removeGarbage() {
+    return new Promise((resolve, reject) => {
+        resolve('Removed garbage')
+    })
+}
+function winIceCream() {
+    return new Promise((resolve, reject) => {
+        resolve('Won icecream!')
+    })
+}
+
+Promise.all([cleanRoom(), removeGarbage(), winIceCream()])
+.then(() => {
+    console.log('all finished')
+})
