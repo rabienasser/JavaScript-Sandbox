@@ -15,7 +15,6 @@
 //         const data = await res.json()
 //         console.log('AWAIT/ASYNC EXAMPLE:', data[5])
 //     } catch {
-//         console.error(err)
 //     }
 // }
 // fetchComments()
