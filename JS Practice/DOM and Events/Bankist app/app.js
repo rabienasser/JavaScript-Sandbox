@@ -36,6 +36,8 @@ document.addEventListener('keydown', function (e) {
 });
 
 
+// CREATING WEBSITE EFFECTS (RE-USABLE)
+
 // CREATE SMOOTH SCROLLING
 const btnScrollTo = document.querySelector('.btn--scroll-to')
 const section1 = document.querySelector('#section--1')
@@ -52,3 +54,86 @@ btnScrollTo.addEventListener('click', (e) => {
     section1.scrollIntoView({ behavior: 'smooth' })
 })
 
+
+
+// PAGE NAVIGATION
+document.querySelectorAll('.nav__link').forEach
+(el => el.addEventListener('click', function(e) {
+    e.preventDefault()  //prevents nav links from scrolling down page to appropriate section
+
+   const id = this.getAttribute('href')
+   console.log(id)
+   document.querySelector(id).scrollIntoView( { behavior: 'smooth' })
+}))
+
+// Another way of achieving this
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+    e.preventDefault();
+  
+    // Matching strategy
+    if (e.target.classList.contains('nav__link')) {
+      const id = e.target.getAttribute('href');
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+  
+
+
+
+//   BUILDING TABBED COMPONENTS
+const tabs = document.querySelectorAll('.operations__tab')
+const tabsContainer = document.querySelector('.operations__tab-container')
+const tabsContent = document.querySelectorAll('.operations__content')
+
+// tabs.forEach(tab => tab.addEventListener('click', () => {    //Not ideal because if there are many tabs, webpage will slow down
+//     console.log(2334)
+// }))
+
+tabsContainer.addEventListener('click', (e) => {
+    const clicked = e.target.closest('.operations__tab')
+
+    // Guard clause
+    if(!clicked) return
+
+    // Active tab
+    tabs.forEach(tab => tab.classList.remove('operations__tab--active'))
+    clicked.classList.add('operations__tab--active')
+
+    // Active content area
+    tabsContent.forEach(tab => tab.classList.remove('operations__content--active'))
+
+    document.querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active')
+})
+
+
+
+
+// MENU FADE ANIMATION
+const nav = document.querySelector('nav')
+
+const handleHover = (e, opacity) => {
+    if(e.target.classList.contains('nav__link')) {
+        const target = e.target
+
+        const siblings = target.closest('.nav')
+        .querySelectorAll('.nav__link')
+        const logo = target.closest('.nav')
+        .querySelector('img')
+
+        siblings.forEach(el => {
+            if(el !== target) {
+                el.style.opacity = opacity
+                logo.style.opacity = opacity
+            }
+        })
+    }
+}
+
+nav.addEventListener('mouseover', (e) => {
+    handleHover(e, 0.3)
+})
+
+nav.addEventListener('mouseout', (e) => {
+    handleHover(e, 1)
+})

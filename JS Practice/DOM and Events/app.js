@@ -56,3 +56,19 @@ document.querySelector('button').addEventListener('mouseenter', test)
 
 
 
+// DOM TRAVERSING
+// Going downwards
+h1.querySelectorAll('.highlight')  //Selects all children, no matter how nested
+h1.childNodes()  //Selects direct child nodes
+h1.children  // Returns an html collection of direct children
+h1.firstElementChild()  //Returns first child of h1
+h1.lastElementChild()  // Returns last child of h1
+
+// Going upwards
+h1.parentNode()  // Returns direct parent node
+h1.parentElement()  // Returns direct parent element
+
+// Going sideways
+h1.previousElementSibling()
+h1.nextElementSibling()
+h1.parentElement.children  //returns all sibling (including itself)
