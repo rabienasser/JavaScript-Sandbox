@@ -37,6 +37,11 @@ const restaurant = {
 
     orderPasta: function(ing1, ing2, ing3) {
         console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`)
+    },
+
+    orderPizza: function(mainIngredient, ...otherIngredients) {
+        console.log(mainIngredient)
+        console.log(otherIngredients)
     }
   };
 
@@ -136,7 +141,8 @@ const restaurant = {
 
 
 
-// SPREAD OPERATOR
+
+// SPREAD OPERATOR  (used to build new arrays, or pass multiple values into functions)
 const randomArr = [7, 8, 9]
 console.log(randomArr)
 
@@ -192,3 +198,48 @@ const restaurantCopy = { ...restaurant }
 restaurantCopy.name = 'Roma\'s Finest';
 restaurantCopy.openingHours.thu.open = 8
 console.log(restaurantCopy)
+
+
+
+
+
+// REST PATTERN AND PARAMETERS  (does the opposite of spread operator)
+
+// (1) DESTRUCTURING USING REST
+
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]]
+
+// REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5]   //(destructuring)
+console.log(a, b, others)   //returns: 1 2 [3, 4, 5]
+
+
+// Using both Rest and Spread together  
+const [, bruschetta, garlicBread, , pizza, ...otherFood] = [...restaurant.starterMenu, ...restaurant.mainMenu]
+console.log(garlicBread, otherFood)  //Returns: Garlic Bread ["pasta", "risotto"]
+// REST does NOT include skipped elements, so in this example, 'Focaccia' and 'Caprese Salad' are gone
+// REST must ALWAYS be last in destructuring, because it is capturing the 'rest' of the array
+
+
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours
+console.log(weekdays)
+
+
+// (2) FUNCTIONS USING REST
+
+const add = function (...numbers) {
+    console.log(numbers.reduce((total, num) => total + num, 0) * 2)
+}
+add(2, 3)  //returns 10
+add(4, 7, 8, 5)  //returns 48
+
+
+const x = [1, 2, 3]
+add(...x)  //returns 12
+
+
+// Restaurant object example
+restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach')  //returns: mushrooms ['onions', 'olives', 'spinach']
