@@ -243,3 +243,8 @@ add(...x)  //returns 12
 
 // Restaurant object example
 restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach')  //returns: mushrooms ['onions', 'olives', 'spinach']
+
+
+// RECAP: 
+// SPREAD OPERATOR is used where we would otherwise write VALUES separated by a comma,
+// REST PATTERN is used where we would otherwise write VARIABLE NAMES seperated by a comma
