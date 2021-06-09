@@ -390,3 +390,17 @@ const sortedDogs = dogs
 // .map(dog => dog.recFoodPortion)
 // .sort((a, b) => a - b)
 console.log(sortedDogs)
+
+
+
+const arr = [17, 21, 23]
+const [a, b, c] = arr
+
+const printForecast = (arr) => {
+    // console.log(`... ${a}C in 1 day ... ${b}C in 2 days... ${c}C in 3 days...`)
+    let str = ''
+    arr.forEach((deg, index) => str += `${deg}C in ${index + 1} days `)
+    console.log(str)
+}
+
+printForecast(arr)
